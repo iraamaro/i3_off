@@ -20,8 +20,8 @@ class cb_exit:
 
     def logout_action(self,btn):
         self.disable_buttons()
-        self.status.set_label("Exiting Openbox, please standby...")
-        os.system("openbox --exit")
+        self.status.set_label("Exiting i3wm, please standby...")
+        os.system("systemctl exit")
 
     def suspend_action(self,btn):
         self.disable_buttons()
@@ -32,12 +32,12 @@ class cb_exit:
     def reboot_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Rebooting, please standby...")
-        os.system("dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart")
+        os.system("systemctl restart")
 
     def shutdown_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Shutting down, please standby...")
-        os.system("dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop")
+        os.system("systemctl poweroff")
 
     def create_window(self):
         self.window = gtk.Window()
