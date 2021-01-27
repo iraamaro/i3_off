@@ -21,7 +21,7 @@ class cb_exit:
     def logout_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Exiting i3wm, please standby...")
-        os.system("systemctl exit")
+        os.system("loginctl terminate-session $XDG_SESSION_ID")
 
     def suspend_action(self,btn):
         self.disable_buttons()
